@@ -1,0 +1,19 @@
+<button type="primary" size="mini" bindtap="onTapOpenComment">打开半屏-组件</button>
+<view class="comment-container">
+  <!-- 顶部不参与手势协商，单独控制 -->
+  <pan-gesture-handler worklet:ongesture="handlePan" style="flex-shrink: 0">
+    <view class="comment-header" bindtap="onTapCloseComment">协商手势弹窗∨</view>
+  </pan-gesture-handler>
+  <!-- 滚动区要与 pan 手势协商 -->
+  <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" worklet:ongesture="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
+      <scroll-view class="comment-list" scroll-y adjustDecelerationVelocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
+        <view wx:for="{{40}}">
+          <view class="sticky-item" style="background-color: {{item%2===0?'aqua':'bisque'}};">
+            {{item}}
+          </view>
+        </view>
+      </scroll-view>
+    </vertical-drag-gesture-handler>
+  </pan-gesture-handler>
+</view>

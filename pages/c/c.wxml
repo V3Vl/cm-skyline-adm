@@ -1,0 +1,52 @@
+<view class="intro">功能</view>
+<view>
+  <text>scroll-view</text>
+  <scroll-view class="scroll-box-1" scroll-y style="height: 400rpx;" type="custom">
+    <sticky-section id="demo2">
+      <sticky-header>
+        <view class="sticky-head">header</view>
+      </sticky-header>
+      <list-view>
+        <view wx:for="{{20}}" wx:key="idx" class="sticky-item" style="background-color: {{item%2===0?'aqua':'bisque'}};">
+          {{item}}
+        </view>
+      </list-view>
+    </sticky-section>
+  </scroll-view>
+  <view>
+    <view style="flex-direction:row;margin-top:10rpx">
+      <button type="primary" size="mini" bindtap="setTabBarBadge">添加tabbar提示</button>
+      <button type="primary" size="mini" bindtap="removeTabBarBadge">移除tabbar提示</button>
+    </view>
+    <view style="flex-direction:row;margin-top:10rpx">
+      <button type="primary" size="mini" bindtap="jumpTo">跳转1</button>
+      <button type="primary" size="mini" bindtap="jumpTo2">跳转2</button>
+      <button type="primary" size="mini">跳转3</button>
+      <button type="primary" size="mini">跳转4</button>
+      <button type="primary" size="mini">跳转5</button>
+    </view>
+    <view style="flex-direction:row;margin-top:10rpx">
+      <button type="primary" size="mini" bindtap="onTapOpenComment">半屏-组件弹窗</button>
+      <button type="primary" size="mini">半屏-路由页面</button>
+    </view>
+  </view>
+</view>
+<!-- 半屏组件整体 -->
+<view class="comment-container">
+  <!-- 头部 -->
+  <pan-gesture-handler worklet:ongesture="handlePan" style="flex-shrink: 0">
+    <view class="comment-header" bindtap="onTapCloseComment">协商手势弹窗∨</view>
+  </pan-gesture-handler>
+  <!-- 滚动区 / 内容 -->
+  <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" worklet:ongesture="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
+      <scroll-view class="comment-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
+        <view wx:for="{{40}}">
+          <view class="sticky-item" style="background-color: {{item%2===0?'aqua':'bisque'}};">
+            {{item}}
+          </view>
+        </view>
+      </scroll-view>
+    </vertical-drag-gesture-handler>
+  </pan-gesture-handler>
+</view>

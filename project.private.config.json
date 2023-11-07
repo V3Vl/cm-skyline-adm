@@ -1,0 +1,30 @@
+{
+  "projectname": "%E8%87%AA%E5%AE%9A%E4%B9%89%20tabBar%20%E6%96%87%E6%A1%A3",
+  "setting": {
+    "compileHotReLoad": true,
+    "skylineRenderEnable": true,
+    "urlCheck": false
+  },
+  "libVersion": "3.1.5",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/demo-negotiation/index",
+          "pathName": "pages/demo-negotiation/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "测试功能汇集",
+          "pathName": "pages/c/c",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<!--demo-negotiation/index.wxml-->
+<navigation-bar title="demo-negotiation" />
+<view class="page-container">
+	<view class="placehodler-widget" />
+	<pan-gesture-handler
+	 tag="pan"
+	 shouldResponseOnMove="shouldPanResponse"
+	 simultaneousHandlers="{{['scroll']}}"
+	 onGestureEvent="handlePan"
+	>
+		<vertical-drag-gesture-handler
+		 tag="scroll"
+		 native-view="scroll-view"
+		 shouldResponseOnMove="shouldScrollViewResponse"
+		 simultaneousHandlers="{{['pan']}}"
+		>
+			<scroll-view
+			 class="list-wrp"
+			 scroll-y
+			 bounces="{{false}}"
+			 refresher-enabled="{{false}}"
+			 adjustDecelerationVelocity="adjustDecelerationVelocity"
+			 bindscroll="handleScroll"
+			 type="list"
+			>
+				<view class="item" wx:for="{{list}}">
+					<view class="avatar" />
+					<view class="comment" />
+				</view>
+			</scroll-view>
+		</vertical-drag-gesture-handler>
+	</pan-gesture-handler>
+</view>
+
