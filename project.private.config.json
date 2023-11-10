@@ -2,7 +2,7 @@
   "projectname": "%E8%87%AA%E5%AE%9A%E4%B9%89%20tabBar%20%E6%96%87%E6%A1%A3",
   "setting": {
     "compileHotReLoad": true,
-    "skylineRenderEnable": true,
+    "skylineRenderEnable": false,
     "urlCheck": false
   },
   "libVersion": "3.1.5",

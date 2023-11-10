@@ -21,7 +21,7 @@
     <view style="flex-direction:row;margin-top:10rpx">
       <button type="primary" size="mini" bindtap="jumpTo">跳转1</button>
       <button type="primary" size="mini" bindtap="jumpTo2">跳转2</button>
-      <button type="primary" size="mini">跳转3</button>
+      <button type="primary" size="mini" bindtap="openDialog">vant弹窗</button>
       <button type="primary" size="mini">跳转4</button>
       <button type="primary" size="mini">跳转5</button>
     </view>
@@ -31,6 +31,10 @@
     </view>
   </view>
 </view>
+<mp-toptips msg="{{tipsContent}}" type="success" show="{{successMsg}}"></mp-toptips>
+<mp-dialog title="weui弹窗" show="{{dialogVisable}}" bindbuttontap="dialogBtn" buttons="{{dialogBtn}}">
+  <view>test content</view>
+</mp-dialog>
 <!-- 半屏组件整体 -->
 <view class="comment-container">
   <!-- 头部 -->

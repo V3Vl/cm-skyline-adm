@@ -1,12 +1,12 @@
-// import { GestureState } from '../../uitl'
+import { GestureState } from '../../uitl'
 const { shared, timing } = wx.worklet
-const GestureState = {
-  POSSIBLE: 0, // 0 此时手势未识别，如 panDown等
-  BEGIN: 1, // 1 手势已识别
-  ACTIVE: 2, // 2 连续手势活跃状态
-  END: 3, // 3 手势终止
-  CANCELLED: 4, // 4 手势取消，
-}
+// const GestureState = {
+//   POSSIBLE: 0, // 0 此时手势未识别，如 panDown等
+//   BEGIN: 1, // 1 手势已识别
+//   ACTIVE: 2, // 2 连续手势活跃状态
+//   END: 3, // 3 手势终止
+//   CANCELLED: 4, // 4 手势取消，
+// }
 
 Component({
   // pageLifetimes: {
@@ -22,6 +22,7 @@ Component({
   // },
   lifetimes: {
     created() {
+      // this.dialogVisable = false
       this.transY = shared(1000)  //pan弹窗的顶点y坐标(高度）
       this.scrollTop = shared(0)
       this.startPan = shared(true)  //pan弹窗是否可以下拉
@@ -38,6 +39,12 @@ Component({
         return { transform: `translateY(${this.transY.value}px)` }
       })
     },
+  },
+  data: {
+    dialogBtn: [{ text: '提交' }, { text: '取消' }],
+    dialogVisable: false,
+    tipsContent: "提交成功",
+    successMsg: false
   },
   methods: {
     setTabBarBadge() {
@@ -65,6 +72,25 @@ Component({
       wx.navigateTo({
         url: '/pages/index2/index',
         // routeType: 'customRoute'
+      })
+    },
+    openDialog() {
+      this.setData({
+        dialogVisable: true
+      })
+      // this.data.dialogVisable = true
+      console.log(this.data.dialogVisable);
+    },
+    dialogBtn(evt) {
+      console.log('点击了>>>', evt);
+      if (evt.detail.index === 0) {
+        this.setData({
+          dialogVisable: false,
+          successMsg: true
+        })
+        this.data.successMsg = true
+      } else this.setData({
+        dialogVisable: false
       })
     },
     onTapOpenComment() {

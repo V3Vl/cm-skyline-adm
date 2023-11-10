@@ -1,5 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-dialog": "../../components/we-dist/dialog/dialog",
+    "mp-toptips": "../../components/we-dist/toptips/toptips"
+  },
   "disableScroll": true,
   "navigationStyle": "custom",
   "renderer": "skyline"
