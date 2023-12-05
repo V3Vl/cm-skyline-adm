@@ -1,8 +1,8 @@
 {
-  "projectname": "%E8%87%AA%E5%AE%9A%E4%B9%89%20tabBar%20%E6%96%87%E6%A1%A3",
+  "projectname": "可以服饰",
   "setting": {
     "compileHotReLoad": true,
-    "skylineRenderEnable": false,
+    "skylineRenderEnable": true,
     "urlCheck": false
   },
   "libVersion": "3.1.5",
@@ -11,15 +11,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/demo-negotiation/index",
-          "pathName": "pages/demo-negotiation/index",
+          "name": "b",
+          "pathName": "pages/b/index2",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "测试功能汇集",
-          "pathName": "pages/c/c",
+          "name": "pages/demo-negotiation/index",
+          "pathName": "pages/demo-negotiation/index",
           "query": "",
           "launchMode": "default",
           "scene": null

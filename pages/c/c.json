@@ -3,6 +3,7 @@
     "mp-dialog": "../../components/we-dist/dialog/dialog",
     "mp-toptips": "../../components/we-dist/toptips/toptips"
   },
+  "componentFramework": "glass-easel",
   "disableScroll": true,
   "navigationStyle": "custom",
   "renderer": "skyline"

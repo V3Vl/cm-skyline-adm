@@ -1,1 +1,53 @@
-<view class="intro">接口</view>
+<view class="navigation-bar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navigation-bar-content {{expand ? 'black' : 'white'}}">
+    <view class="logo-l">
+      <image src="https://www.loewe.com.cn/media/wysiwyg/2024/ss24-preco/_-1.jpg" />
+    </view>
+    <view class="logo-r">buy it</view>
+  </view>
+</view>
+
+<pan-gesture-handler tag="pan" simultaneousHandlers="{{['scroll-view']}}" shouldResponseOnMove="shouldPanResponse" onGestureEvent="handlePan">
+  <view class="page">
+    <view class="header">
+      <!-- 这里放一张大logo -->
+      <image class="header-banner" style="height: 308px;" src="https://www.loewe.com.cn/media/wysiwyg/2024/ss24-preco/_-1.jpg"></image>
+      <view class="header-shop-outer">
+      </view>
+    </view>
+    <view class="main" style="border-radius: 15px;">
+      <view class="main-banner">
+        <!-- 这里放一张广告标题插画 -->
+        <image mode="top left" src="https://www.loewe.com.cn/media/wysiwyg/2024/ss24-preco/LOEWE_SS24_PRECO_GIFTING_STILL_LIFE_RGB_CROPPED_2250x3000_34.jpg" bind:load="onBannerLoaded"></image>
+      </view>
+      <!-- 一级类目 -->
+      <view class="tabs">
+        <view wx:for="{{mainMenu}}" style="width: 160rpx;" class="vip-category-item" id="vip-category-{{index}}">
+          <text class="vip-category-name {{selectedMain === index ? 'selected' : ''}}" data-id="{{index}}" bind:tap="chooseMainmenu">{{item.name}}</text>
+          <view class="{{selectedMain === index ? 'tabs-indicator' : ''}}"></view>
+        </view>
+        <view class="search-input">搜索相关商品</view>
+      </view>
+      <view class="product">
+        <!-- 二级类目 -->
+        <view class="product-category">
+          <view wx:for="{{categories}}" id="menu-{{index}}">
+            <text class="product-category-item {{selectedMenu === index ? 'product-category-item-selected' : '' }}" data-id="{{index}}" bind:tap="chooseMenu">{{item}}</text>
+          </view>
+        </view>
+        <vertical-drag-gesture-handler tag="scroll-view" native-view="scroll-view" simultaneousHandlers="{{['pan']}}" shouldResponseOnMove="shouldScrollViewResponse">
+          <scroll-view class="product-list" type="custom" scroll-y show-scrollbar="{{false}}" adjustDecelerationVelocity="adjustDeceleration" worklet:onscrollupdate="handleScroll">
+            <list-view style="border: 1px solid #000;">
+              <!-- <view class="product-item" wx:for="{{item.data}}" wx:key="name" wx:for-item="subItem"> -->
+              <view class="product-item" wx:for="{{list[selectedMenu].list}}" wx:key="name">
+                <text>
+                  {{item.name}}
+                </text>
+              </view>
+            </list-view>
+          </scroll-view>
+        </vertical-drag-gesture-handler>
+      </view>
+    </view>
+  </view>
+</pan-gesture-handler>

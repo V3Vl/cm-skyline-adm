@@ -5,18 +5,21 @@
     "include": []
   },
   "setting": {
-    "urlCheck": true,
+    "coverView": true,
     "es6": true,
     "postcss": true,
     "minified": true,
-    "newFeature": true,
-    "autoAudits": false,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "ignoreUploadUnusedFiles": true,
+    "compileWorklet": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.5.0",

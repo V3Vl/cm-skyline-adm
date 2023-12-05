@@ -18,19 +18,19 @@
         "pagePath": "pages/index/index",
         "iconPath": "image/icon_component.png",
         "selectedIconPath": "image/icon_component_HL.png",
-        "text": "toC案例"
+        "text": "首页"
       },
       {
         "pagePath": "pages/b/index2",
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
-        "text": "toB案例"
+        "text": "选购"
       },
       {
         "pagePath": "pages/c/c",
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
-        "text": "其他"
+        "text": "demo"
       },
       {
         "pagePath": "pages/d/index",
@@ -47,15 +47,16 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "lazyCodeLoading": "requiredComponents",
   "rendererOptions": {
     "skyline": {
-      "defaultDisplayBlock": false,
+      "defaultDisplayBlock": true,
       "disableABTest": true,
       "sdkVersionBegin": "3.0.0",
       "sdkVersionEnd": "15.255.255"
     }
   },
   "renderer": "skyline",
-  "componentFramework": "glass-easel"
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
 }

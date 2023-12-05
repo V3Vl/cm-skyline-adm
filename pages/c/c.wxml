@@ -21,7 +21,7 @@
     <view style="flex-direction:row;margin-top:10rpx">
       <button type="primary" size="mini" bindtap="jumpTo">跳转1</button>
       <button type="primary" size="mini" bindtap="jumpTo2">跳转2</button>
-      <button type="primary" size="mini" bindtap="openDialog">vant弹窗</button>
+      <button type="primary" size="mini" bindtap="openDialog">弹窗</button>
       <button type="primary" size="mini">跳转4</button>
       <button type="primary" size="mini">跳转5</button>
     </view>
